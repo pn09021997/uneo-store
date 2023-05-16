@@ -13,7 +13,7 @@ if (isset($_POST['login'])) {
     if (isset($_SERVER['HTTP_REFERER'])) {
         $txtUrl = $_SERVER['HTTP_REFERER'];
     } else {
-        $txtUrl = '../../index.php?login='.$login;
+        $txtUrl = '../../index.php?login=' . $login;
     }
     if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['permission'])) {
         $getUserLogin = User::getUserLogin($_POST['username'], $_POST['permission']);
@@ -26,12 +26,12 @@ if (isset($_POST['login'])) {
                 if ($getUserLogin[0]['permission'] == "user") {
                     $_SESSION['isLogin']["user"] = $getUserLogin[0]['id'];
                     $id = $getUserLogin[0]['id'];
-                    setcookie('isLogin', $id, 3600);   
+                    setcookie('isLogin', $id, 3600);
                 }
             }
         }
     }
-    header('location:'.$txtUrl);
+    header('location:' . $txtUrl);
 } else if (isset($_POST['register'])) {
     $register = -1;
     if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['password2'])) {
@@ -45,7 +45,7 @@ if (isset($_POST['login'])) {
         }
         $validPassword = checkPassword($password);
         if ($validPassword !== true) {
-            $flag = false;  
+            $flag = false;
         }
         if ($password == $confirm_Password) {
             $getAllUser = User::getAllUsers();
@@ -68,9 +68,9 @@ if (isset($_POST['login'])) {
             }
         }
         $idUser = Cart::getOrder_ByCustomerId(User::getUserLogin($username, 'User')[0]['id']);
-        header('location:../../index.php?register='.(int)$register);
+        header('location:../../index.php?register=' . (int)$register);
     } else {
-        header('location:../../index.php?register='.(int)$register);
+        header('location:../../index.php?register=' . (int)$register);
     }
 }
 
@@ -78,9 +78,9 @@ if (isset($_POST['login'])) {
 function checkUsername($username)
 {
     $username = trim($username);
-    if (strlen($username) < 4) {
+    if (strlen($username) < 8) {
         return false;
-    } elseif (strlen($username) > 26) {
+    } elseif (strlen($username) > 30) {
         return false;
     } elseif (!preg_match('~^[a-z]{2}~i', $username)) {
         return false;
@@ -97,6 +97,8 @@ function checkUsername($username)
 
 function checkPassword($password)
 {
+    $minLength = strlen($password) < 8;
+    $maxLength = strlen($password) > 16;
     $uppercase = preg_match('@[A-Z]@', $password);
     $lowercase = preg_match('@[a-z]@', $password);
     $number    = preg_match('@[0-9]@', $password);
@@ -105,6 +107,10 @@ function checkPassword($password)
     } else     if (!$lowercase) {
         return false;
     } else  if (!$number) {
+        return false;
+    } else if (!$minLength) {
+        return false;
+    } else if (!$maxLength) {
         return false;
     }
     return true;

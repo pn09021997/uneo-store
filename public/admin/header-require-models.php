@@ -4,7 +4,7 @@ if (!isset($_SESSION['isLogin']['admin'])) {
     header('location:../../index.php');
 }
 
-require_once "../../config.php";
+require_once "./config.php";
 require_once "./models/db.php";
 require_once "./models/product.php";
 require_once "./models/reviews.php";

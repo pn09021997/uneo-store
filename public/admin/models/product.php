@@ -41,8 +41,8 @@ class Product extends Db
             $queries =  "SELECT * FROM products JOIN categories ON products.category = categories.category_id 
             WHERE products.price < $priceRange AND categories.category_name = '$categoryName' ORDER BY  products.created_at ASC";
         }
-        $queries = 
-        $sql = self::$connection->prepare($queries);
+        $queries =
+            $sql = self::$connection->prepare($queries);
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -50,7 +50,8 @@ class Product extends Db
     }
 
     static function getProductByCriteria($columnName, $criteria, $categoryName)
-    {   if ($categoryName == 'All') {
+    {
+        if ($categoryName == 'All') {
             $txt = 'default_category';
         } else {
             $txt = 'category';
@@ -86,7 +87,7 @@ class Product extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
-    
+
     static function getAllProduct()
     {
         $sql = self::$connection->prepare("SELECT * FROM products JOIN categories ON products.default_category = categories.category_id JOIN sub_image ON products.id = sub_image.product_id ORDER BY products.created_at ASC");
@@ -181,7 +182,7 @@ class Product extends Db
         return $items; //return an array.
     }
 
-     static function paginate($url, $page, $totalResults, $resultsPerPage, $offset)
+    static function paginate($url, $page, $totalResults, $resultsPerPage, $offset)
     {
         $totalLinks = ceil($totalResults / $resultsPerPage);
         $links = "";
@@ -199,23 +200,21 @@ class Product extends Db
         $prevLink = "";
         $nextLink = "";
         // Trường hợp để xuất hiện $firstLink, $lastLink, $prevLink, $nextLink:
-        if($page > 1) {
+        if ($page > 1) {
             $prev = $page - 1;
             $prevLink = "<a style=\"padding:10px;\" href='$url" . "page=$prev'>< Previous</a>";
             $firstLink = "<a style=\"padding:10px;\" href='$url" . "page=1'><< First</a>";
         }
-        if($page < $totalLinks) {
+        if ($page < $totalLinks) {
             $next = $page + 1;
             $nextLink = "<a style=\"padding:10px;\" href='$url" . "page=$next'>Next ></a>";
             $lastLink = "<a style=\"padding:10px;\" href='$url" . "page=$totalLinks'>Last >></a>";
         }
         // $links:
-        for($i=$from; $i<=$to; $i++) {
-            if($page == $i) {
+        for ($i = $from; $i <= $to; $i++) {
+            if ($page == $i) {
                 $links = $links . "<a style=\"padding:10px;text-decoration:underline;color:red;font-weight:bold;\" href='$url" . "page=$i'>$i</a>";
-            }
-            else
-            {
+            } else {
                 $links = $links . "<a style=\"padding:10px;\" href='$url" . "page=$i'>$i</a>";
             }
         }

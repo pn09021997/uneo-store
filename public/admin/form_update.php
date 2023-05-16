@@ -49,8 +49,8 @@
                                             foreach ($list_of_categories as $key => $value) {
                                             ?>
                                                 <option value="<?php echo $value['category_id']; ?>" <?php if ($selectedProduct['category'] == $value['category_id']) {
-                                                                                                        echo "selected";
-                                                                                                    } ?>>
+                                                                                                            echo "selected";
+                                                                                                        } ?>>
                                                     <?php echo $value['category_name']; ?>
                                                 </option>
                                             <?php
@@ -59,39 +59,40 @@
                                         </select> *
                                     </div>
                                 </div>
-                                    <div class="control-group">
-                                        <label class="control-label">Current image :</label>
-                                        <div class="controls" style="width:25%;height:auto;">
-                                            <img src="<?= $selectedProduct['pro_image']; ?>" alt="" />
-                                            <input type="text" name="currentImg" id="currentImg" value="<?php echo $selectedProduct['pro_image']; ?>" readonly style="font-style:italic;">
-                                        </div>
+                                <div class="control-group">
+                                    <label class="control-label">Current image :</label>
+                                    <div class="controls" style="width:25%;height:auto;">
+                                        <img src="<?= $selectedProduct['pro_image']; ?>" alt="" />
+                                        <input type="text" name="currentImg" id="currentImg" value="<?php echo $selectedProduct['pro_image']; ?>" readonly style="font-style:italic;">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Change image (URL):</label>
+                                    <div class="controls">
+                                        <input type="text" name="newImg" id="newImg">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Description</label>
+                                    <div class="controls">
+                                        <textarea class="span11" placeholder="Description" name="description"><?php echo $selectedProduct['description']; ?></textarea>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Change image (URL):</label>
+                                        <label class="control-label">Price :</label>
                                         <div class="controls">
-                                            <input type="text" name="newImg" id="newImg">
+                                            <input type="text" class="span11" placeholder="price" name="price" value="<?php echo $selectedProduct['price']; ?>" required /> *
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Description</label>
+                                        <label class="control-label">Receipt :</label>
                                         <div class="controls">
-                                            <textarea class="span11" placeholder="Description" name="description"><?php echo $selectedProduct['description']; ?></textarea>
-                                        </div>
-                                        <div class="control-group">
-                                            <label class="control-label">Price :</label>
-                                            <div class="controls">
-                                                <input type="text" class="span11" placeholder="price" name="price" value="<?php echo $selectedProduct['price']; ?>" required /> *
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            <label class="control-label">Receipt :</label>
-                                            <div class="controls">
-                                            <input type="number" class="span11" name="receipt" min="1" value="<?php echo $selectedProduct['receipt']; ?>" required />                                            </div>
-                                        </div>
-                                        <div class="form-actions" style="text-align:center;">
-                                            <button type="submit" name="submit" class="btn btn-success" style="padding:5px 50px;">Update</button>
+                                            <input type="number" class="span11" name="receipt" min="1" value="<?php echo $selectedProduct['receipt']; ?>" required />
                                         </div>
                                     </div>
+                                    <div class="form-actions" style="text-align:center;">
+                                        <button type="submit" name="submit" class="btn btn-success" style="padding:5px 50px;">Update</button>
+                                    </div>
+                                </div>
                             </form>
                             <!-- INSERT RESULT: -->
                             <div style="padding:30px 0;text-align:center;font-weight:bold;font-size:15px;">
@@ -132,18 +133,18 @@
                                             <input type="text" class="span11" placeholder="Categories name" name="category_name" required value="<?php echo $selectedManu['category_name']; ?>" /> *
                                         </div>
                                         <div class="control-group">
-                                        <label class="control-label">Current image :</label>
-                                        <div class="controls" style="width:25%;height:auto;">
-                                            <img src="<?= $selectedManu['category_img']; ?>" alt="" />
-                                            <input type="text" name="currentImg" id="currentImg" value="<?php echo $selectedManu['category_img']; ?>" readonly style="font-style:italic;">
+                                            <label class="control-label">Current image :</label>
+                                            <div class="controls" style="width:25%;height:auto;">
+                                                <img src="<?= $selectedManu['category_img']; ?>" alt="" />
+                                                <input type="text" name="currentImg" id="currentImg" value="<?php echo $selectedManu['category_img']; ?>" readonly style="font-style:italic;">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label">Change image (URL):</label>
-                                        <div class="controls">
-                                            <input type="text" name="newImg" id="newImg">
+                                        <div class="control-group">
+                                            <label class="control-label">Change image (URL):</label>
+                                            <div class="controls">
+                                                <input type="text" name="newImg" id="newImg">
+                                            </div>
                                         </div>
-                                    </div>
                                         <div class="form-actions" style="text-align:center;">
                                             <button type="submit" name="submit" class="btn btn-success" style="padding:5px 50px;">Update</button>
                                         </div>
@@ -254,17 +255,17 @@
                                     <label class="control-label">Permission :</label>
                                     <div class="controls">
                                         <select name="permission" id="permission">
-                                            <?php if ($selectedUser['permission'] == 'user'){?>
-                                            <option value="user" selected>User</option>
-                                            <option value="admin">Admin</option>
-                                            <?php } else {?>
-                                            <option value="user">User</option>
-                                            <option value="admin" selected>Admin</option>
-                                            <?php }?>
+                                            <?php if ($selectedUser['permission'] == 'user') { ?>
+                                                <option value="user" selected>User</option>
+                                                <option value="admin">Admin</option>
+                                            <?php } else { ?>
+                                                <option value="user">User</option>
+                                                <option value="admin" selected>Admin</option>
+                                            <?php } ?>
                                         </select>
                                     </div>
                                     <div class="form-actions" style="text-align:center;">
-                                            <button type="submit" name="submit" class="btn btn-success" style="padding:5px 50px;">Update</button>
+                                        <button type="submit" name="submit" class="btn btn-success" style="padding:5px 50px;">Update</button>
                                     </div>
                                 </div>
                             </form>
@@ -294,9 +295,6 @@
 </div>
 <!-- END CONTENT -->
 <!--Footer-part-->
-<div class="row-fluid">
-    <div id="footer" class="span12"> 2017 &copy; TDC - Lập trình web 1</div>
-</div>
 <!--end-Footer-part-->
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.ui.custom.js"></script>

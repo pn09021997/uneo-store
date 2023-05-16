@@ -43,11 +43,13 @@
                                     } else {
                                         $countProducts = count(Category::getCountProducts_ByCategory($value['category_id'], 'category'));
                                     }
-                                    
+
                                 ?>
                                     <tr class="">
-                                        <td><h5><?php echo $value['category_name']; ?></h5></td>
-                                        <td><?= $countProducts?> products</td>
+                                        <td>
+                                            <h5><?php echo $value['category_name']; ?></h5>
+                                        </td>
+                                        <td><?= $countProducts ?> products</td>
                                         <td>
                                             <a href="form_update.php?functionType=categories&category_id=<?php echo $value['category_id']; ?>" class="btn btn-success btn-mini">Edit</a>
                                             <a href="delete_categories.php?category_id=<?php echo $value['category_id']; ?>" class="btn btn-danger btn-mini">Delete</a>
@@ -65,15 +67,12 @@
     </div>
     <div style="text-align: center;">
         <?php
-            echo Category::paginate("?", $page, $totalResults, $resultsPerPage, 1);
+        echo Category::paginate("?", $page, $totalResults, $resultsPerPage, 1);
         ?>
     </div>
 </div>
 <!-- END CONTENT -->
 <!--Footer-part-->
-<div class="row-fluid">
-    <div id="footer" class="span12"> 2017 &copy; TDC - Lập trình web 1</div>
-</div>
 <?php
 if (isset($_GET['deleteResult']) == TRUE) {
     if ($_GET['deleteResult'] == 1) {

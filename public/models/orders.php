@@ -17,4 +17,13 @@ class Order extends Db{
         $sql->bind_param('isissi', $cartId, $address, $phone, $email, $instruction,$totalPrice);
         return $sql->execute();
     }
+
+    static function getAllOrderUnConfirm() {
+        $sql = self::$connection->prepare("SELECT * FROM orders
+        WHERE orders.confrim = 0");
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
+    }
 }

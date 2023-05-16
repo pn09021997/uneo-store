@@ -1,20 +1,29 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-body input, button {
+body input,
+button {
   outline: none;
-} 
+}
 
 @keyframes popIn {
-  from {transform: scale(0.85); opacity: 0;}
-  to {transform: scale(1); opacity: 1;}
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
-#btn-readme{
+#btn-readme {
   border: none;
   background: transparent;
   margin: 5% 0 0 0;
@@ -26,11 +35,14 @@ body input, button {
   width: 100%;
 }
 
-#readme-result td, #eadme-result th {
+#readme-result td,
+#eadme-result th {
   padding: 8px;
 }
 
-#readme-result tr:hover {background-color: #eb7025;}
+#readme-result tr:hover {
+  background-color: #eb7025;
+}
 
 #readme-result th {
   padding-top: 12px;
@@ -91,16 +103,16 @@ body input, button {
   overflow: hidden;
   outline: 0;
 }
-.top-header #permission{
+.top-header #permission {
   width: 100%;
   border: none;
   border-bottom: 2px #000 solid;
   outline: none;
   padding-bottom: 5px;
-  transition: .7s;
+  transition: 0.7s;
 }
 
-.top-header #permission:focus{
+.top-header #permission:focus {
   border-bottom: 2px #eb7025 solid;
 }
 
@@ -130,6 +142,7 @@ body input, button {
 .top-header #loginModal .btn-signin {
   transition: 0.4s;
   border: none;
+  transition: 0.2s linear;
 }
 
 .top-header #loginModal .btn-signin:hover {
@@ -156,6 +169,7 @@ body input, button {
   color: white;
   border: none;
   transition: 0.4s;
+  transition: 0.2s linear;
 }
 
 .top-header #sideBarModal .btn-send-email:hover {
@@ -175,6 +189,7 @@ body input, button {
   text-decoration: none;
   color: black;
   transition: 0.6s;
+  transition: 0.2s linear;
 }
 
 .top-header #sideBarModal .social-item a:hover {
@@ -233,7 +248,7 @@ body input, button {
 }
 
 .top-header .banner {
-  margin-top: 100px;
+  margin-top: 2rem;
 }
 .top-header #cartModal table {
   width: 100%;
@@ -254,6 +269,7 @@ body input, button {
   text-decoration: none;
   color: #000;
   transition: 0.5s;
+  transition: 0.2s linear;
 }
 
 .top-header #cartModal .product-title:hover {
@@ -285,7 +301,7 @@ body input, button {
   width: 100%;
   padding: 16px 40px;
   color: #fff;
-  transition: 0.7s;
+  transition: 0.2s linear;
 }
 
 .top-header #cartModal .cart-footer .btn-checkout:focus,
@@ -314,6 +330,12 @@ body input, button {
   transform: rotate(-90deg);
   padding: 0 10px;
   border-radius: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .banner .slide-pagination {
+    display: none;
+  }
 }
 
 .banner .collection {
@@ -356,6 +378,7 @@ body input, button {
   position: absolute;
   top: 20%;
   left: 7%;
+  padding: 20px;
 }
 
 .banner .banner-slide-controls1 {
@@ -363,10 +386,19 @@ body input, button {
   padding: 30px 40px;
   font-size: 2rem;
   color: #b3b3b3;
+  transition: 0.2s linear;
+  cursor: pointer;
 }
 
 .banner .banner-slide-controls1:hover {
   color: #000;
+}
+
+.banner .banner-slide-controls2 {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .banner #btn-slide-prev1 {
@@ -381,27 +413,14 @@ body input, button {
   right: 30px;
 }
 
-.banner #btn-slide-prev2 {
+.banner .btn-dot-slide {
   width: 10px;
-  height: 10px;
+  height: 12px;
   border-radius: 50%;
   background: #dec6b8;
   border: none;
-  position: absolute;
-  bottom: 20px;
-  left: 49%;
 }
 
-.banner #btn-slide-next2 {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #dec6b8;
-  border: none;
-  position: absolute;
-  bottom: 20px;
-  right: 49%;
-}
 .banner #btn-slide-prev2:focus,
 .banner #btn-slide-next2:focus {
   transform: scale(1.3);
@@ -413,6 +432,25 @@ body input, button {
 .categories {
   position: relative;
   padding: 0 20px;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  overflow: hidden;
+}
+
+.categories figure img {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.categories figure:hover img {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
 }
 
 .categories .category-item {
@@ -534,6 +572,32 @@ body input, button {
   margin-top: 100px;
   margin-bottom: 100px;
 }
+
+@media screen and (max-width: 768px) {
+  .new-design .categories-items {
+    justify-content: normal !important;
+  }
+
+  .new-design .img-product-item {
+    margin-bottom: 5%;
+  }
+
+  .banner .btn-shopping {
+    display: none;
+  }
+
+  .discover .discover-content .btn-discover {
+    display: none !important;
+  }
+}
+
+.new-design ul {
+  margin: 0 auto;
+}
+
+.new-design .title {
+  text-align: center;
+}
 .new-design .list-categories {
   display: flex;
   list-style: none;
@@ -558,13 +622,13 @@ body input, button {
   position: absolute;
   top: 40px;
   left: 50%;
+  transform: translate(-50%, 0);
   color: black;
 }
 
 .new-design .desc-price {
   color: #777;
 }
-
 .product-item-type .col-3 {
   padding: 5px;
 }
@@ -616,13 +680,23 @@ body input, button {
 
 .discover .discover-content {
   position: absolute;
-  left: 15%;
-  top: 20%;
+  top: 50%;
+  right: 10%;
+  transform: translate(-40%, -50%);
+}
+
+@media screen and (max-width: 768px) {
+  .discover .discover-content {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .discover .discover-content .collection-title {
   border-left: 1px #fff solid;
   padding-left: 20px;
+  font-size: 1.5rem;
 }
 
 .discover .discover-content .btn-discover {
@@ -657,7 +731,7 @@ body input, button {
 .our-blogs .blog-item-body a {
   color: #777;
   text-decoration: none;
-  transition: 0.5s ease;
+  transition: 0.2s linear;
 }
 
 .our-blogs .blog-item-body {
@@ -674,7 +748,8 @@ body input, button {
 }
 
 .our-blogs img {
-  transition: 0.5s;
+  transition: all 0.5s;
+  object-fit: cover;
 }
 
 .our-blogs img:hover {
@@ -691,20 +766,18 @@ body input, button {
 
 .our-blogs .slide-controls {
   font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  transform: translate(0 -50%);
+  color: #fff;
 }
 
 .our-blogs #btn-prev {
-  position: absolute;
-  left: 0;
-  bottom: 50%;
-  color: #fff;
+  left: 10px;
 }
 
 .our-blogs #btn-next {
-  position: absolute;
-  right: 0;
-  bottom: 50%;
-  color: #fff;
+  right: 10px;
 }
 
 /*Comments*/
@@ -729,8 +802,14 @@ body input, button {
   padding-right: 120px;
   padding-left: 20px;
 }
-
+s
 /*Footer*/
+footer dl, ol, ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 0;
+}
+
 footer .contact {
   color: #777;
   margin-bottom: 100px;
@@ -740,7 +819,7 @@ footer .contact .website-link {
   color: #777;
   text-decoration: none;
   border-bottom: 2px #f9d4bd solid;
-  transition: 0.8s;
+  transition: 0.2s linear;
 }
 
 footer .contact .website-link:hover {
@@ -751,7 +830,7 @@ footer .contact .website-link:hover {
 footer .contact .list-item a {
   color: #777;
   text-decoration: none;
-  transition: 0.8s;
+  transition: 0.2s linear;
 }
 
 footer .contact .list-item {
@@ -762,6 +841,10 @@ footer .contact .list-item1 {
   margin-right: 30px;
 }
 
+footer .contact .list-item a {
+  transition: 0.2s linear;
+}
+
 footer .contact .list-item a:hover {
   color: #eb7025;
 }
@@ -770,11 +853,10 @@ footer .contact .contact-list-title {
   font-size: 1.2rem;
   color: #000;
   font-weight: 600;
-  margin-bottom: 45px;
+  margin: 1em 0;
 }
 
 footer .contact .input-email {
-  width: 77%;
   padding: 10px;
   border: none;
   border-bottom: 2px solid #777;
@@ -783,10 +865,12 @@ footer .contact .input-email {
 footer .contact .btn-subscribe {
   padding-bottom: 10px;
   border: none;
+  outline: none;
   border-bottom: 2px solid #000;
   background: transparent;
   color: #000;
   font-weight: 700;
+  transition: 0.2s linear;
 }
 
 footer .contact .btn-subscribe:hover {
@@ -803,7 +887,30 @@ footer .copyright {
   border-top: 1px #e4e4e4 solid;
   padding: 35px 0;
 }
+
+footer .footer-media {
+  list-style: none;
+  display: flex;
+}
+@media screen and (max-width: 768px) {
+  footer {
+    text-align: center;
+  }
+
+  footer .footer-media {
+    justify-content: center;
+  }
+}
 @media only screen and (min-width: 992px) {
+  .img-product-item {
+    margin: 0;
+  }
+  .new-design ul {
+    margin: 0;
+  }
+  .new-design .title {
+    text-align: left;
+  }
   .comments .comment-format {
     text-align: center;
     padding: 80px 0;
@@ -823,10 +930,5 @@ footer .copyright {
 
   .d-layout:hover .dropdown-layout-mobile {
     display: none !important;
-  }
-
-  .categories .category-item:hover .img-category,
-  .categories .category-item:focus .img-category {
-    transform: scaleY(1.1);
   }
 }

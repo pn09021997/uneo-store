@@ -43,7 +43,7 @@
                                             <h5><?php echo $value['username']; ?></h5>
                                         </td>
                                         <td><?php if ($value['permission'] == "admin") {
-                                                echo "<h5>Admin</h5>";   
+                                                echo "<h5>Admin</h5>";
                                             } else {
                                                 echo "<h5>User</h5>";
                                             } ?></td>
@@ -53,7 +53,7 @@
                                         </td>
                                     </tr>
                                 <?php
-                                    endforeach;
+                                endforeach;
                                 ?>
                             </tbody>
                         </table>
@@ -64,15 +64,12 @@
     </div>
     <div style="text-align: center;">
         <?php
-            echo User::paginate("users.php?", $page, $totalResults, $resultsPerPage, 1);
+        echo User::paginate("users.php?", $page, $totalResults, $resultsPerPage, 1);
         ?>
     </div>
 </div>
 <!-- END CONTENT -->
 <!--Footer-part-->
-<div class="row-fluid">
-    <div id="footer" class="span12"> 2021 &copy; TDC - Lập trình web 1</div>
-</div>
 <?php
 if (isset($_GET['deleteResult']) == TRUE) {
     if ($_GET['deleteResult'] == 1) {

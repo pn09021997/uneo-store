@@ -1,5 +1,7 @@
 <?php
-require_once 'header.php' ?>
+require_once 'header.php';
+?>
+
 <!-- BEGIN CONTENT -->
 <div id="content">
     <div id="content-header">
@@ -20,9 +22,9 @@ require_once 'header.php' ?>
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"><a href="./form.php?functionType=products"> <i class="icon-plus"></i>
                             </a></span>
-                        <?php foreach (Category::getAllCategory_RemoveAll() as $key => $value) :?>
-                            <h5 class='list-category-item' id=<?= $value['category_id']?>><?= $value['category_name']?></h5>
-                        <?php endforeach;?>
+                        <?php foreach (Category::getAllCategory_RemoveAll() as $key => $value) : ?>
+                            <h5 class='list-category-item' id=<?= $value['category_id'] ?>><?= $value['category_name'] ?></h5>
+                        <?php endforeach; ?>
 
                     </div>
                     <div class="widget-content nopadding">
@@ -59,8 +61,8 @@ require_once 'header.php' ?>
                                 // Output:
                                 echo "<p style=\"text-align:center;\" id='totalResult'><b>There are $totalResults results.</b></p>";
                                 foreach ($list_of_products as $key => $value) {
-                                    ?>
-                                    <tr >
+                                ?>
+                                    <tr>
                                         <td width=250>
                                             <img src='<?= $value['pro_image']; ?>' alt="" class='img-fluid'>
                                         </td>
@@ -68,14 +70,20 @@ require_once 'header.php' ?>
                                             <h5><?= $value['name']; ?></h5>
                                         </td>
                                         <td class='mobile-hidden'>
-                                            <p><?= substr($value['description'], 0, 100).' ...'; ?></p>
+                                            <p><?= substr($value['description'], 0, 100) . ' ...'; ?></p>
                                         </td>
                                         <td>
-                                            <h5><?= '$'.$value['price']; ?></h5>
+                                            <h5><?= '$' . $value['price']; ?></h5>
                                         </td>
-                                        <td> <h5><?= $value['vote']; ?></h5></td>
-                                        <td> <h5><?= $value['receipt']; ?></h5></td>
-                                        <td> <h5><?= date_format(date_create($value['created_at']), 'F j, Y'); ?></h5></td>
+                                        <td>
+                                            <h5><?= $value['vote']; ?></h5>
+                                        </td>
+                                        <td>
+                                            <h5><?= $value['receipt']; ?></h5>
+                                        </td>
+                                        <td>
+                                            <h5><?= date_format(date_create($value['created_at']), 'F j, Y'); ?></h5>
+                                        </td>
                                         <td>
                                             <a href="form_update.php?functionType=products&id=<?= $value['id']; ?>" class="btn btn-success btn-mini" style='margin-bottom: 5px'>Edit</a>
                                             <a href="delete_product.php?id=<?= $value['id']; ?>" class="btn btn-danger btn-mini" style='margin-bottom: 5px'>Delete</a>
@@ -103,9 +111,6 @@ require_once 'header.php' ?>
 </div>
 <!-- END CONTENT -->
 <!--Footer-part-->
-<div class="row-fluid">
-    <div id="footer" class="span12"> 2017 &copy; TDC - Lập trình web 1</div>
-</div>
 <?php
 if (isset($_GET['deleteResult']) == TRUE) {
     if ($_GET['deleteResult'] == 1) {
