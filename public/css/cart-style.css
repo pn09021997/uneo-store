@@ -12,6 +12,11 @@ button {
   outline: none;
 }
 
+.cart {
+  position: relative;
+  padding: 0 20px;
+}
+
 #btn-readme {
   border: none;
   background: transparent;
@@ -421,8 +426,7 @@ footer .footer-media {
 }
 
 img {
-  width: 100px;
-  height: 100%;
+  width: 100%;
 }
 
 table {
@@ -437,6 +441,28 @@ table tr td,
 th {
   padding: 20px 0;
   font-size: 1.2rem;
+}
+
+@media screen and (max-width: 768px) {
+  table {
+    width: 100%;
+    border-spacing: 0;
+    margin-bottom: 20px;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 10px;
+    display: block;
+    border-radius: 5px;
+  }
+
+  td {
+    display: flex;
+  }
 }
 
 .cart .cart-body {
